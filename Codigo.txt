@@ -1,0 +1,1019 @@
+#include "pch.h"
+#include <iostream>
+#include <clocale>
+#include <math.h>
+
+using namespace System;
+using namespace std;
+
+string nombre_empleado;
+char terminos, pago_reinicio, tipoPersona, cuenta, confirmar_compra, reinicio, inicio_eleccion, operaciones, redireccion;
+int ejemplares_compra, costo_unitario, libro_compra_elección;
+string nombre_compra, dni_empleado, año_nacimiento, celular_empresa, apellido_compra, usuario, departamento, nuevo_usuario, nueva_contraseña;
+int cantidad, pago_total;
+string correo_compra, contraseña, razon, genero, empresa, libro_elegido;
+
+string nombre_venta, apellido_venta, dni_cliente, celular_cliente, correo_cliente, institucion_financiera, red_registrada, libro_vendido;
+int cvv_tarjeta, libro_venta, ganancia_libro;
+long long numero_tarjeta;
+char tarjeta_cliente, red_pago, confirmacion_ganancia, reiniciar_ganancia;
+
+void Operaciones();
+void Operaciones_default();
+void OperacionesConfirmacion();
+void OperacionesConfirmacion_default();
+
+
+////////////////////////////////////
+//         FUNCIONES VENTA        //
+////////////////////////////////////
+
+//FuncionesVenta_Estándar
+void Venta();
+void InicioVenta();
+void CatalogoVenta();
+void VentaLibro();
+void DatosCliente();
+void PagoCliente();
+
+//FuncionesVenta_default
+void PagoCliente_default();
+void VentaLibro_else();
+void TarjetaCredito();
+void TarjetaNumero();
+void ifTarjetaNumero();
+void TarjetaCVV();
+void ifTarjetaCVV();
+void TarjetaDebito();
+void ConfirmacionGanancia();
+void ConfirmacionGanancia_default();
+void CalculoGanancia();
+void ReinicioVenta();
+void ReinicioVenta_default();
+void BoletaGanancia();
+void RedPago();
+void RedPago_default();
+void ifBucleVenta();
+void ifBucleVenta_default();
+
+////////////////////////////////////
+//        FUNCIONES COMPRA        //
+////////////////////////////////////
+
+//FuncionesCompra_Estándar
+void Compra();
+void InicioCompra();
+void CrearCuenta();
+void CuentaCreada();
+void PersonaNJ();
+void AceptarTérminos();
+void SwitchTérminos();
+void PreguntaTérminos();
+void CatalogoCompra();
+void CatalogoCantidades();
+void ifEjemplares();
+void ifLibro();
+void CalculoInversión();
+void BoletaCompra();
+void PedidoCancelado();
+void IniciadoSesion();
+void ifBucleCompra();
+
+//FuncionesCompra_default
+void CrearCuenta_default();
+void PersonaNJ_default();
+void SwitchTerminos_default();
+void IngresarCuenta();
+void IngresarCuenta_default();
+void PreguntaTerminos_default();
+void PedidoCancelado_default();
+void BoletaCompra_default();
+void IniciadoSesion_default();
+void ifBucleCompra_default();
+
+////////////////////////////////////
+//             INICIO             //
+////////////////////////////////////
+
+int main()
+{
+    cout << "\n¡Bienvenido, empleado de ATLAS!";
+    cout << "\n\nCargamos con la responsabilidad de cultivar la cultura y el conocimiento en";
+    cout << "\nun mundo que parece ya no importarle." << endl;
+    cout << "\n¿Me podrías comentar tu nombre?" << endl;
+    cin >> nombre_empleado;
+    cout << "\n¡Bienvenido de nuevo " << nombre_empleado << "!";
+    Operaciones();
+    return 0;
+}
+
+void Operaciones()
+{
+    cout << "\n¿Deseas ir al sistema de operaciones?";
+    cout << "\nSí(s) o No(n) : "; cin >> operaciones;
+    switch (operaciones)
+    {
+    case 's':
+        OperacionesConfirmacion();
+        break;
+    case 'n':
+        cout << "\nEntendido,";
+        cout << "\n¡Hasta luego " << nombre_empleado << "!" << endl << endl << endl;
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            Operaciones_default();
+        } while (operaciones != 's' && operaciones != 'n');
+        break;
+    }
+}
+
+void Operaciones_default()
+{
+    Operaciones();
+}
+
+void OperacionesConfirmacion()
+{
+    cout << "\n¿Deseas realizar compras para el rellenar stock de la tienda,";
+    cout << "\no procesar el cálculo del pedido de alguno de nuestros clientes? ";
+    cout << "\nCompra (C) o Venta (V): "; cin >> inicio_eleccion;
+    switch (inicio_eleccion)
+    {
+    case 'C':
+        Compra();
+        break;
+    case 'V':
+        Venta();
+        break;
+    default:
+        do {
+            cout << "\nDisculpa, no le entendí...";
+            cout << "\nPorfavor, repita su respuesta";
+            OperacionesConfirmacion_default();
+        } while (inicio_eleccion != 'C' && inicio_eleccion != 'V');
+        break;
+    }
+}
+
+void OperacionesConfirmacion_default()
+{
+    OperacionesConfirmacion();
+}
+
+////////////////////////////////////
+//       PROCESO DE COMPRA        //
+////////////////////////////////////
+
+void Compra()
+{
+    InicioCompra();
+}
+
+void InicioCompra()
+{
+    cout << "\nRedirigiendo a pagina de compra";
+    cout << endl << "..." << endl << "..." << endl << "..." << endl;
+    cout << "\n¡Exito!" << endl;
+    cout << endl << "\t                         BIENVENIDO A ATLAS EXPRESS";
+    cout << endl << "\t------------------------------------------------------------------------------";
+    cout << endl << "\t     ATLAS Express es el principal canal de compra de libros por línea.";
+    cout << endl << "\t   Este servicio nos permite abastecer nuestras liberías por todo el mundo.";
+    cout << endl << "\t   ¡Contamos con conexión a redes de pedido a distancia por todo el Perú!";
+    cout << endl << "\t------------------------------------------------------------------------------";
+    cout << endl << "\nProcediendo a la página de compra..." << endl;
+    cout << endl << "-----------------------------" << endl;
+    cout << "      COMPRA DE LIBROS" << endl;
+    cout << "           INICIO" << endl;
+    cout << "-----------------------------" << endl;
+    CrearCuenta();
+}
+
+
+
+void CrearCuenta_default()
+{
+    CrearCuenta();
+}
+
+////////////////////////////////////
+//       PROCESO DE LA CUENTA     //
+////////////////////////////////////
+
+
+void CuentaCreada()
+{
+    cout << "\n----------------------" << endl;
+    cout << "   INGRESAR CUENTA " << endl;
+    cout << "----------------------\n";
+    cout << "Ingresar Usuario: "; cin >> usuario;
+    cout << "Ingresar Contraseña: "; cin >> contraseña;
+    cout << "\nHas Iniciado Sesion Correctamente\n";
+    IniciadoSesion();
+}
+
+
+
+void CrearCuenta()
+{
+    cout << "\nTienes cuenta?" << endl;
+    cout << "Si (s) o No (n): "; cin >> cuenta;
+    switch (cuenta)
+    {
+    case 's':
+        CuentaCreada();
+        break;
+    case 'n':
+        PersonaNJ();
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor" << endl;
+            CrearCuenta_default();
+        } while (cuenta != 'n' && cuenta != 's');
+        break;
+    }
+}
+
+
+
+void PersonaNJ_default()
+{
+    PersonaNJ();
+}
+
+
+
+void PersonaNJ()
+{
+    cout << "\nEs una persona natural o juridica?" << endl;
+    cout << "Natural (N) o Jurídica (J): "; cin >> tipoPersona;
+    switch (tipoPersona)
+    {
+    case 'N':
+        cout << "\nIngrese Nombre:            "; cin >> nombre_compra;
+        cout << "Ingrese Apellido:          "; cin >> apellido_compra;
+        cout << "Ingrese DNI:               "; cin >> dni_empleado;
+        cout << "Ingrese genero:            "; cin >> genero;
+        cout << "Ingrese Año de Nacimiento: "; cin >> año_nacimiento;
+        cout << "Ingrese Celular:           "; cin >> celular_empresa;
+        cout << "Ingrese Correo:            "; cin >> correo_compra;
+        cout << "\nIngrese Usuario:           "; cin >> usuario;
+        cout << "Ingrese Contraseña:        "; cin >> contraseña;
+        AceptarTérminos();
+        break;
+    case 'J':
+        cout << "\nIngrese Nombre:         "; cin >> nombre_compra;
+        cout << "Ingrese Apellido:       "; cin >> apellido_compra;
+        cout << "Ingrese Razon Social:   "; cin >> razon;
+        cout << "Ingrese Nombre Empresa: "; cin >> empresa;
+        cout << "Ingrese Departamento:   "; cin >> departamento;
+        cout << "Ingrese Correo:         "; cin >> correo_compra;
+        cout << "\nIngrese Usuario:        "; cin >> usuario;
+        cout << "Ingrese Contraseña:     "; cin >> contraseña;
+        AceptarTérminos();
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            PersonaNJ_default();
+        } while (tipoPersona != 'N' && tipoPersona != 'J');
+        break;
+    }
+}
+
+
+////////////////////////////////////
+//      TERMINOS Y CONDICIONES    //
+////////////////////////////////////
+
+void AceptarTérminos()
+{
+    cout << "\n---------------------------" << endl;
+    cout << "   TERMINOS Y CONDICIONES " << endl;
+    cout << "---------------------------\n";
+    SwitchTérminos();
+}
+
+
+
+void SwitchTerminos_default()
+{
+    SwitchTérminos();
+}
+
+
+
+void SwitchTérminos()
+{
+    cout << "Aceptas los terminos y condiciones?\n";
+    cout << "Si (s) o No (n): "; cin >> terminos;
+    switch (terminos)
+    {
+    case 's':
+        cout << "\n----------------------" << endl;
+        cout << "   INGRESAR CUENTA " << endl;
+        cout << "----------------------\n";
+        IngresarCuenta();
+        break;
+    case 'n':
+        PreguntaTérminos();
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            SwitchTerminos_default();
+        } while (terminos != 's' && terminos != 'n');
+        break;
+    }
+}
+
+
+
+void PreguntaTerminos_default()
+{
+    PreguntaTérminos();
+}
+
+
+
+void PreguntaTérminos()
+{
+    cout << "\nPor temas juridicos, debes aceptar los terminos y condiciones de la empresa...\n";
+    cout << "¿Desea que le reeplantee la pregunta?" << endl;
+    cout << "Si (s) o No (n): "; cin >> reinicio;
+    switch (reinicio)
+    {
+    case 's':
+        SwitchTerminos_default();
+        break;
+    case 'n':
+        cout << "\n\n\nLo lamentamos," << endl;
+        cout << "No podemos continuar con su compra, cerraremos la pagina." << endl;
+        cout << "¡Hasta la proxima!" << endl;
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            PreguntaTerminos_default();
+        } while (reinicio != 's' && reinicio != 'n');
+        break;
+    }
+}
+
+
+
+void IngresarCuenta()
+{
+    cout << "\nIngresar Usuario: "; cin >> nuevo_usuario;
+    cout << "Ingresar Contraseña: "; cin >> nueva_contraseña;
+    if (usuario == nuevo_usuario && contraseña == nueva_contraseña)
+    {
+        cout << "\nHas Iniciado Sesion Correctamente\n";
+        IniciadoSesion();
+    }
+    else if (usuario != nuevo_usuario)
+    {
+        do {
+            cout << "\nLa Sesion es Incorrecta\n";
+            IngresarCuenta_default();
+        } while (usuario != nuevo_usuario);
+    }
+    else if (contraseña != nueva_contraseña)
+    {
+        do {
+            cout << "\nLa Sesion es Incorrecta\n";
+            IngresarCuenta_default();
+        } while (contraseña != nueva_contraseña);
+    }
+}
+
+
+
+void IniciadoSesion()
+{
+    CatalogoCompra();
+    cout << endl << "Libro: #"; cin >> libro_compra_elección;
+    CatalogoCantidades();
+    cout << "Opcion: "; cin >> ejemplares_compra;
+    CalculoInversión();
+}
+
+
+
+void IniciadoSesion_default()
+{
+    IniciadoSesion();
+}
+
+
+
+void IngresarCuenta_default()
+{
+    IngresarCuenta();
+}
+
+////////////////////////////////////
+//       CATALOGO DE COMPRA       //
+////////////////////////////////////
+
+
+void CatalogoCompra()
+{
+    cout << endl << "\t-----------------------------------------------------------------";
+    cout << endl << "\t                      CATALOGO DE ATLAS EXPRESS";
+    cout << endl << "\t-----------------------------------------------------------------";
+    cout << endl << "\t            LIBRO               |         AUTOR      |   PRECIO";
+    cout << endl << "\t------------------------------- | ------------------ | ----------";
+    cout << endl << "\t(1) 'Etica para Amador'         | Fernando Savater   |    S/30";
+    cout << endl << "\t(2) '¿Y si hacemos dinero?'     | Walter Eyzaguirre  |    S/50";
+    cout << endl << "\t(3) 'La Metafísica'             | Aristóteles        |    S/70";
+    cout << endl << "\t(4) 'La origen de las especies' | Charles Darwin     |    S/70";
+    cout << endl << "\t(5) 'Godel, Escher, Bach'       | Douglas Hofstadter |    S/80";
+    cout << endl << "\t-----------------------------------------------------------------";
+    cout << endl << "\n¿Cual libro desea?";
+}
+
+void ifLibro()
+{
+    if (libro_compra_elección == 1)
+    {
+        costo_unitario = 30;
+        libro_elegido = "'Etica para amador'";
+    }
+    else if (libro_compra_elección == 2)
+    {
+        costo_unitario = 50;
+        libro_elegido = "'¿Y si hacemos dinero?'";
+    }
+    else if (libro_compra_elección == 3)
+    {
+        costo_unitario = 70;
+        libro_elegido = "'La Metafisica'";
+    }
+    else if (libro_compra_elección == 4)
+    {
+        costo_unitario = 70;
+        libro_elegido = "'La evolucion de las especies'";
+    }
+    else if (libro_compra_elección == 5)
+    {
+        costo_unitario = 80;
+        libro_elegido = "'Godel, Escher, Bach'";
+    }
+    else
+    {
+        do {
+            cout << "\nOpcion inválida";
+            cout << "\nPorfavor, repita su respuesta..." << endl;
+            IniciadoSesion_default();
+        } while (libro_compra_elección != 1 && libro_compra_elección != 2 && libro_compra_elección != 3 && libro_compra_elección != 4 && libro_compra_elección != 5);
+    }
+}
+
+
+////////////////////////////////////
+//       CANTIDADES DE COMPRA     //
+////////////////////////////////////
+
+void CatalogoCantidades()
+{
+    cout << "\n\t      CANTIDADES PREDETERMINADAS" << endl;
+    cout << "\t-----------------------------------" << endl;
+    cout << "\t(1) 100 libro" << endl;
+    cout << "\t(2) 200 libros" << endl;
+    cout << "\t(3) 500 libros" << endl;
+    cout << "\t(4) 1000 libros" << endl;
+    cout << "\t(5) 2000 libros" << endl;
+    cout << "\t-----------------------------------" << endl;
+    cout << "\n¿Cuales copias desea?" << endl;
+}
+
+
+void ifEjemplares()
+{
+    if (ejemplares_compra == 1)
+        cantidad = 100;
+    else if (ejemplares_compra == 2)
+        cantidad = 200;
+    else if (ejemplares_compra == 3)
+        cantidad = 500;
+    else if (ejemplares_compra == 4)
+        cantidad = 1000;
+    else if (ejemplares_compra == 5)
+        cantidad = 2000;
+    else
+    {
+        do {
+            cout << "\nOpcion inválida";
+            cout << "\nPorfavor, repita su respuesta..." << endl;
+            IniciadoSesion_default();
+        } while (ejemplares_compra != 1 && ejemplares_compra != 2 && ejemplares_compra != 3 && ejemplares_compra != 4 && ejemplares_compra != 5);
+    }
+}
+
+////////////////////////////////////
+//      CONFIRMACION DE PAGO      //
+////////////////////////////////////
+
+
+void CalculoInversión()
+{
+    ifEjemplares();
+    ifLibro();
+    cout << "\n\t         REALIZAR EL PAGO" << endl;
+    cout << "\t-------------------------------" << endl;
+    cout << "\tCantidad de libros: " << cantidad << endl;
+    pago_total = (cantidad * costo_unitario) + 20;
+    cout << "\tCosto unitario: S/" << costo_unitario << endl;
+    cout << "\tCosto de envio: S/20" << endl;
+    cout << "\t-------------------------------" << endl;
+    BoletaCompra();
+}
+
+
+
+void PedidoCancelado()
+{
+    cout << "\nPedido Cancelado";
+    cout << "\n¿Desea reformular la compra desde 0?";
+    cout << "\nSi (s) o No (n): "; cin >> pago_reinicio;
+    switch (pago_reinicio)
+    {
+    case 's':
+        IngresarCuenta();
+        break;
+    case 'n':
+        cout << "\nEntendido, ¡Que tenga un buen dia!";
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            PedidoCancelado_default();
+        } while (pago_reinicio != 's' && pago_reinicio != 'n');
+        break;
+    }
+}
+
+
+void PedidoCancelado_default()
+{
+    PedidoCancelado();
+}
+
+
+
+void BoletaCompra_default()
+{
+    BoletaCompra();
+}
+
+////////////////////////////////////
+//        BOLETA ELECTRONICA      //
+////////////////////////////////////
+
+void BoletaCompra()
+{
+    ifEjemplares();
+    ifLibro();
+    pago_total = (cantidad * costo_unitario) + 20;
+    cout << "\nConfirmar?:" << endl;
+    cout << "Si (s) o No (n): "; cin >> confirmar_compra;
+    switch (confirmar_compra)
+    {
+    case 's':
+        cout << "\n\t           BOLETA ELECTRONICA          " << endl;
+        cout << "\t-------------------------------------" << endl;
+        cout << "\t  Nombre   : " << nombre_compra << endl;
+        cout << "\t  Apellido : " << apellido_compra << endl;
+        cout << "\t  Empresa  : " << empresa << endl;
+        cout << "\t  Usuario  : " << usuario << endl;
+        cout << "\t-------------------------------------" << endl;
+        cout << "\t  Eleccion de libro : " << libro_compra_elección << endl;
+        cout << "\t  Nombre del libro  : " << libro_elegido << endl;
+        cout << "\t  Precio x unidad   : S/" << costo_unitario << endl;
+        cout << "\t  Cantidad          : " << cantidad << endl;
+        cout << "\t  Costo de envio    : S/20" << endl;
+        cout << "\t  Total a pagar     : S/" << pago_total << endl;
+        cout << "\t-------------------------------------" << endl;
+
+        cout << endl << "\t                          ¡COMPRA EXITOSA!";
+        cout << endl << "\t---------------------------------------------------------------------";
+        cout << endl << "\t          Muchas gracias por confiar en nuestros servicios";
+        cout << endl << "\t    Le enviaremos a su gmail" << correo_compra << "los datos de su compra, además de la";
+        cout << endl << "\t                   fecha de llegada de su pedido.";
+        cout << endl << "\t---------------------------------------------------------------------";
+        cout << endl << "\t                         ¡HASTA LA PRÓXIMA!" << endl << endl << endl;
+        ifBucleCompra();
+        break;
+    case 'n':
+        PedidoCancelado();
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            BoletaCompra_default();
+        } while (confirmar_compra != 's' && confirmar_compra != 'n');
+        break;
+    }
+}
+
+////////////////////////////////////
+//       PROCESO DE VENTA         //
+////////////////////////////////////
+
+void Venta()
+{
+    InicioVenta();
+}
+
+
+
+void InicioVenta()
+{
+    cout << "\nRedirigiendo a calculadora ATLAS";
+    cout << endl << "..." << endl << "..." << endl << "..." << endl;
+    cout << "\n¡Exito!" << endl;
+    cout << "\nBIENVENIDO A CALCULADORA ATLAS";
+    DatosCliente();
+}
+
+////////////////////////////////////
+//        CATALOGO DE VENTA       //
+////////////////////////////////////
+
+
+void CatalogoVenta()
+{
+    cout << endl << "\t-----------------------------------------------------------------";
+    cout << endl << "\t                     CATALOGO DE ATLAS";
+    cout << endl << "\t-----------------------------------------------------------------";
+    cout << endl << "\t            LIBRO               |        AUTOR       |   PRECIO";
+    cout << endl << "\t------------------------------- | ------------------ | ----------";
+    cout << endl << "\t(1) 'Etica para Amador'         | Fernando Savater   |    S/80";
+    cout << endl << "\t(2) '¿Y si hacemos dinero?'     | Walter Eyzaguirre  |    S/70";
+    cout << endl << "\t(3) 'La Metafísica'             | Aristóteles        |   S/100";
+    cout << endl << "\t(4) 'La origen de las especies' | Charles Darwin     |   S/150";
+    cout << endl << "\t(5) 'Godel, Escher, Bach'       | Douglas Hofstadter |   S/100";
+    cout << endl << "\t-----------------------------------------------------------------";
+    VentaLibro();
+}
+
+
+
+void VentaLibro()
+{
+    cout << endl << "Libro: #"; cin >> libro_venta;
+
+    if (libro_venta == 1)
+    {
+        libro_vendido = "'Etica para Amador'";
+        ganancia_libro = 80; PagoCliente();
+    }
+    else if (libro_venta == 2)
+    {
+        libro_vendido = "'Y si hacemos dinero?'";
+        ganancia_libro = 70; PagoCliente();
+    }
+    else if (libro_venta == 3)
+    {
+        libro_vendido = "'La Metafísica'";
+        ganancia_libro = 100; PagoCliente();
+    }
+    else if (libro_venta == 4)
+    {
+        libro_vendido = "'La evolucion de las especies'";
+        ganancia_libro = 150; PagoCliente();
+    }
+    else if (libro_venta == 5)
+    {
+        libro_vendido = "'Godel, Escher, Bach'";
+        ganancia_libro = 100; PagoCliente();
+    }
+
+    else
+    {
+        do {
+            cout << "\nRespuesta invalida..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            VentaLibro_else();
+        } while (libro_venta != 1 && libro_venta != 2 && libro_venta != 3 && libro_venta != 4 && libro_venta != 5);
+    }
+}
+
+void VentaLibro_else()
+{
+    VentaLibro();
+}
+
+
+////////////////////////////////////
+//        DATOS DE LA VENTA       //
+////////////////////////////////////
+
+void DatosCliente()
+{
+    cout << "\nIngrese Nombre:     "; cin >> nombre_venta;
+    cout << "Ingrese Apellido:   "; cin >> apellido_venta;
+    cout << "Ingrese DNI:        "; cin >> dni_cliente;
+    cout << "Ingrese Celular:    "; cin >> celular_cliente;
+    cout << "Ingrese Correo:     "; cin >> correo_cliente;
+    cout << "\n\n\nProcesando..." << endl << endl;
+    CatalogoVenta();
+}
+
+
+
+void PagoCliente()
+{
+    cout << "\n¿Desea pagar con tarjeta de débito o crédito?";
+    cout << "\nCrédito (C) / Débito (D): "; cin >> tarjeta_cliente;
+    switch (tarjeta_cliente)
+    {
+    case 'C':
+        TarjetaCredito();
+        break;
+    case 'D':
+        TarjetaDebito();
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            PagoCliente_default();
+        } while (tarjeta_cliente != 'C' && tarjeta_cliente != 'D');
+        break;
+    }
+}
+
+
+void PagoCliente_default()
+{
+    PagoCliente();
+}
+
+
+void TarjetaCredito()
+{
+    cout << "Nombre del titular              : "; cin >> nombre_venta;
+    cout << "Apellido del titular            : "; cin >> apellido_venta;
+    cout << "Institución financiera emisora  : "; cin >> institucion_financiera;
+    TarjetaNumero();
+}
+
+
+void TarjetaNumero()
+{
+    cout << "Numero de tarjeta : "; cin >> numero_tarjeta; ifTarjetaNumero();
+}
+
+
+void TarjetaCVV()
+{
+    cout << "CVV : "; cin >> cvv_tarjeta; ifTarjetaCVV();
+}
+
+
+void ifTarjetaNumero()
+{
+    if (numero_tarjeta <= 9999999999999999 && numero_tarjeta >= 1000000000000000)
+        TarjetaCVV();
+    else
+    {
+        do {
+            cout << "\nNumero de tarjeta inválido..." << endl;
+            cout << "Porfavor, intente de nuevo" << endl;
+            TarjetaNumero();
+        } while (numero_tarjeta > 9999999999999999 || numero_tarjeta < 1000000000000000);
+    }
+}
+
+
+void ifTarjetaCVV()
+{
+    if (cvv_tarjeta <= 9999 && cvv_tarjeta >= 1000) CalculoGanancia();
+
+    else if (cvv_tarjeta > 9999 || cvv_tarjeta < 1000)
+    {
+        do {
+            cout << "\nCVV inválido..." << endl;
+            cout << "Porfavor, intente de nuevo" << endl;
+            TarjetaCVV();
+        } while (cvv_tarjeta > 9999 || cvv_tarjeta < 1000);
+    }
+}
+
+
+void TarjetaDebito()
+{
+    cout << "Nombre del titular              : "; cin >> nombre_venta;
+    cout << "Apellido del titular            : "; cin >> apellido_venta;
+    RedPago();
+}
+
+
+void RedPago()
+{
+    cout << "Red de pago (Visa (V) o Mastercard (M)) : "; cin >> red_pago;
+    switch (red_pago)
+    {
+    case 'V':
+        red_registrada = "Visa";
+        TarjetaNumero();
+        break;
+    case 'M':
+        red_registrada = "Mastercard";
+        TarjetaNumero();
+        break;
+    default:
+        do {
+            cout << "\nRespuesta inválida..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            RedPago_default();
+        } while (red_pago != 'V' && red_pago != 'M');
+        break;
+    }
+}
+
+
+void RedPago_default()
+{
+    RedPago();
+}
+
+////////////////////////////////////
+//       DATOS DEL CLIENTE     //
+////////////////////////////////////
+
+
+void CalculoGanancia()
+{
+    cout << "\n\t       DATOS DE CLIENTE" << endl;
+    cout << "\t-------------------------------" << endl;
+    cout << "\tNombre   : " << nombre_venta << endl;
+    cout << "\tApellido : " << apellido_venta << endl;
+    cout << "\tDNI      : " << dni_cliente << endl;
+    cout << "\tCelular  : " << celular_cliente << endl;
+    cout << "\t-------------------------------" << endl;
+
+    cout << "\n\n\t        DATOS DE PAGO" << endl;
+    cout << "\t-------------------------------" << endl;
+    cout << "\tLibro: " << libro_vendido << endl;
+    cout << "\tCosto: S/" << ganancia_libro << endl;
+    cout << "\t-------------------------------" << endl;
+    ConfirmacionGanancia();
+}
+
+
+
+void ConfirmacionGanancia()
+{
+    cout << endl << "\n¿Todo correcto?";
+    cout << endl << "Si (s) o No (n): "; cin >> confirmacion_ganancia;
+    switch (confirmacion_ganancia)
+    {
+    case 's':
+        BoletaGanancia();
+        break;
+    case 'n':
+        ReinicioVenta();
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            ConfirmacionGanancia_default();
+        } while (confirmacion_ganancia != 's' && confirmacion_ganancia != 'n');
+        break;
+    }
+}
+
+
+void ConfirmacionGanancia_default()
+{
+    ConfirmacionGanancia();
+}
+
+
+void ReinicioVenta()
+{
+    cout << "\n¿Reiniciar proceso de compra?";
+    cout << "\nSi (s) o No (n): "; cin >> reiniciar_ganancia;
+    switch (reiniciar_ganancia)
+    {
+    case 's':
+        DatosCliente();
+        break;
+    case 'n':
+        cout << "\nCerrando programa...";
+        cout << "\n¡Hasta luego " << nombre_empleado << "!" << endl << endl << endl;
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpe, no le entendi..." << endl;
+            cout << "Repita su respuesta porfavor," << endl;
+            ReinicioVenta_default();
+        } while (reiniciar_ganancia != 's' && reiniciar_ganancia != 'n');
+        break;
+    }
+}
+
+
+void ReinicioVenta_default()
+{
+    ReinicioVenta();
+}
+
+////////////////////////////////////
+//       BOLETA ELECTRONICA       //
+////////////////////////////////////
+
+void BoletaGanancia()
+{
+    cout << "\n Procesando boleta de compra..." << endl << endl << "..." << endl << "..." << endl << "..." << endl;
+    cout << "\n\t          BOLETA ELECTRONICA          " << endl;
+    cout << "\n\t-------------------------------------" << endl;
+    cout << "\t  Nombre de cliente   : " << nombre_venta << endl;
+    cout << "\t  Apellido de cliente : " << apellido_venta << endl;
+    cout << "\t  DNI                 : " << dni_cliente << endl;
+    cout << "\t  Celular             : " << celular_cliente << endl;
+    cout << "\t  Orden de libro      : " << libro_venta << endl;
+    cout << "\t  Nombre del libro    : " << libro_vendido << endl;
+    cout << "\t  Precio x unidad     : S/" << ganancia_libro << endl;
+    cout << "\n\t-------------------------------------" << endl;
+    cout << "\t         ¡Cálculo de venta exitoso!" << endl << endl << endl;
+    ifBucleVenta();
+}
+
+
+void ifBucleCompra()
+{
+    cout << "\n\n\n¡Proceso completado correctamente" << nombre_empleado << "!";
+    cout << "\n Antes de irte, ¿Deseas tomar la compra de algun cliente?";
+    cout << "\n Si(s) o No(n) : "; cin >> redireccion;
+    switch (redireccion)
+    {
+    case 's':
+        Venta();
+        break;
+    case 'n':
+        cout << "\nEntiendo,";
+        cout << "\n¡Será hasta la próxima!" << endl << endl << endl;
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpa, no le entendí...";
+            cout << "\nPorfavor, repita su respuesta";
+            ifBucleCompra_default();
+        } while (redireccion != 's' && redireccion != 'n');
+    }
+}
+
+
+void ifBucleCompra_default()
+{
+    ifBucleCompra();
+}
+
+void ifBucleVenta()
+{
+    cout << "\n\n\n¡Proceso completado correctamente" << nombre_empleado << "!";
+    cout << "\n Antes de irte, ¿Deseas redirigirte a hacer compras?";
+    cout << "\n Si(s) o No(n) : "; cin >> redireccion;
+    switch (redireccion)
+    {
+    case 's':
+        Compra();
+        break;
+    case 'n':
+        cout << "\nEntiendo,";
+        cout << "\n¡Será hasta la próxima!" << endl << endl;
+        exit(0);
+        break;
+    default:
+        do {
+            cout << "\nDisculpa, no le entendí...";
+            cout << "\nPorfavor, repita su respuesta";
+            ifBucleVenta_default();
+        } while (redireccion != 's' && redireccion != 'n');
+    }
+}
+
+
+
+void ifBucleVenta_default()
+{
+    ifBucleVenta();
+}
